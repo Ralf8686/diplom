@@ -39,7 +39,7 @@ contract RUMI {
     address companyAddress,
     uint _warrantyReserve,
     uint _reserveForCompensationPayments
-  ) onlyOwner(companyAddress) public {
+  ) onlyRegistredCompany(companyAddress) public {
     
     warrantyReserve += _warrantyReserve;
     reserveForCompensationPayments += _reserveForCompensationPayments;
