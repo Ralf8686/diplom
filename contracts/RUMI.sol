@@ -20,6 +20,7 @@ contract RUMI {
     require(companies[companyAddress]);
     Company company = Company(companyAddress);
     require(company.owner() == msg.sender);
+    _;
   }
 
   constructor () public {
@@ -40,7 +41,6 @@ contract RUMI {
     uint _warrantyReserve,
     uint _reserveForCompensationPayments
   ) onlyRegistredCompany(companyAddress) public {
-    
     warrantyReserve += _warrantyReserve;
     reserveForCompensationPayments += _reserveForCompensationPayments;
     emit AddInsurance(passport, insurance);
