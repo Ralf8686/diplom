@@ -3,7 +3,7 @@ pragma solidity ^0.4.23;
 library KBM {
   uint8 internal constant decimals = 100;
   function getKBM(string _className) internal pure returns (uint) {
-    bytes32 kbmHash = keccak256(_className);
+    bytes32 kbmHash = keccak256(abi.encodePacked(_className));
     if (kbmHash == keccak256("M")) {
       return 2.45*100;
     } else if (kbmHash == keccak256("0")) {
