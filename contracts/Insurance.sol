@@ -49,7 +49,7 @@ contract Insurance {
     require(msg.sender == owner);
     // solium-disable security/no-block-members
     startDate = now;
-    endDate = now + 1 years;
+    endDate = now + 365 days;
   }
 
   function isActive () public view returns(bool) {
