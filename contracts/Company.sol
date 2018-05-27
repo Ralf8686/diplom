@@ -30,7 +30,12 @@ contract Company {
     RUMIAddress = _RUMIAddress;
   }
 
-  function createInsurance (address _vehicle, address _passport, string _className, uint _basePrice) onlyOwner public {
+  function createInsurance (
+    address _vehicle,
+    address _passport,
+    string _className,
+    uint _basePrice
+  ) onlyOwner public {
     Insurance insurance = new Insurance(_vehicle, _passport, _className, _basePrice);
     insurances[insurance] = true;
     if (insurance.owner() == address(this)) {
@@ -64,6 +69,12 @@ contract Company {
     issuanceCosts += _issuanceCosts;
     netPremium += _netPremium;
 
-    emit ActivateInsutance(_insuranceAddress, warrantyReserve, reserveForCompensationPayments, _issuanceCosts, _netPremium);
+    emit ActivateInsutance(
+      _insuranceAddress,
+      warrantyReserve,
+      reserveForCompensationPayments,
+      _issuanceCosts,
+      _netPremium
+    );
   }
 }
